@@ -244,6 +244,131 @@ do seu…  AMOR💖
     <p>Seu eterno namorado 💘</p>
   </div>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Nossas Memórias 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #ffc1cc);
+      color: #4a2c2a;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 3em;
+    }
+
+    .botao-revelar {
+      margin: 30px auto;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 10px #ffb6c1;
+    }
+
+    .botao-revelar:hover {
+      transform: scale(1.05);
+      background-color: #ff1493;
+    }
+
+    .conteudo-galeria {
+      display: none;
+      animation: aparecer 1s ease;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .galeria img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #ffb6c1;
+      transition: transform 0.3s ease;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    p {
+      font-size: 1.3em;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    footer {
+      margin: 40px 0;
+      font-size: 1.1em;
+      color: #7a4e4e;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Nosso Primeiro Aniversário De NAMORO💝</h1>
+
+  <button class="botao-revelar" onclick="mostrarGaleria()">Clique aqui para ver nossas fotos 📸</button>
+
+  <div class="conteudo-galeria" id="galeria">
+    <p>
+      Cada foto é um pedacinho do nosso amor, dos nossos momentos, do quanto somos felizes juntos.  
+      Eu te amo com todo o meu coração! 💕
+    </p>    
+
+    <div class="galeria">
+      <img src="foto1.jpg" alt="Momento 1">
+      <img src="foto2.jpg" alt="Momento 2">
+      <img src="foto3.jpg" alt="Momento 3">
+      <img src="foto4.jpg" alt="Momento 4">
+      <img src="foto5.jpg" alt="Momento 5">
+    </div>
+
+    <p>Bom… eu nunca imaginaria que estaria namorando assim, tão "novo", nem que seria aqui na FAD ou que seria com a pessoa mais INCRÍVEL do mundo todo!
+
+Eu te amo muito! E nesses meses que estávamos juntos, e nesse um mês em que estamos namorando, foi a melhor coisa que me aconteceu!
+
+Por mais que exista a possibilidade de eu ir embora a qualquer momento, saiba que, mesmo em outra galáxia, eu continuarei te amando, respeitando e esperando... SEMPRE!
+
+Nunca irei te esquecer ou fazer algo que te magoe, principalmente se eu souber que isso pode acontecer. Eu nem consigo pensar na possibilidade de ir embora, porque já começo a me sentir mal só de imaginar que não estarei sempre ao seu lado quando você precisar — ou para te dar um abraço naqueles momentos de aflição.
+
+Porém, eu sei que o nosso amor é maior do que qualquer coisa, e não importa a distância:
+EU SEMPRE TE AMAREI! 💖
+</p>
+
+  </div>
+
+  <script>
+    function mostrarGaleria() {
+      document.getElementById('galeria').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
+
+
 <footer>
     Feito com muito amor, para você ❤
   </footer>
