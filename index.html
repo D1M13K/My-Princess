@@ -368,6 +368,11 @@ EU SEMPRE TE AMAREI! 💖
 </body>
 </html>
 
+
+<footer>
+    Feito com muito amor, para você ❤
+  </footer>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -415,99 +420,148 @@ EU SEMPRE TE AMAREI! 💖
   <h1>💖 Olá, My Princess 💖</h1>
   <p>Aqui estão algumas das nossas memórias. Como agora estamos meio longe e nao vamos nos ver sempre... descidi fazer essa parte para que possamos reagir e comentar sobre alguns dos nossos momentos... TE AMO😍</p>
 
-  <div class="photo-card" id="photo1">
+  <!-- Código ajustado com Firebase para reações e comentários na última foto e último vídeo -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Júlia ❤️</title>
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore-compat.js"></script>
+  <style>
+    body {
+      font-family: 'Arial';
+      background: #fff0f5;
+      padding: 20px;
+      text-align: center;
+    }
+    .photo-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .photo-card img, .photo-card video {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .reactions, .comments {
+      margin-top: 10px;
+    }
+    .comments input {
+      width: 80%;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      background: #ff69b4;
+      color: white;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Olá, My Princess 💖</h1>
+  <p>Aqui estão algumas das nossas memórias com reações e comentários. Te amo! 😍</p>
+
+  <div class="photo-card" id="001V">
     <video controls>
-      <source src="./Mídias/dança1.mp4" type="video/mp4" whidth="500" height="500 >
+      <source src="./Mídias/dança1.mp4" type="video/mp4">
     </video>
     <div class="reactions">
-      <button onclick="likePhoto('photo1')">❤️ Curtir (<span id="likes-photo1">0</span>)</button>
+      <button onclick="likeMedia('video-final')">❤️ Curtir (<span id="001V">0</span>)</button>
     </div>
     <div class="comments">
-      <input type="text" id="input-photo1" placeholder="Escreva um comentário fofo...">
-      <button onclick="commentPhoto('photo1')">Comentar</button>
-      <ul id="comments-photo1"></ul>
+      <input type="text" id="input-video-final" placeholder="Escreva um comentário fofo...">
+      <button onclick="commentMedia('video-final')">Comentar</button>
+      <ul id="comments-video-final"></ul>
     </div>
   </div>
 
-  <div class="photo-card" id="photo2">
-    <img src="./Mídias/BK1.jpg" alt="Foto de Júlia e eu">'>
+  <div class="photo-card" id="001f">
+    <img src="./Mídias/BK1.jpg" alt="Foto de Júlia e eu">
     <div class="reactions">
-      <button onclick="likePhoto('photo2')">❤️ Curtir (<span id="likes-photo2">0</span>)</button>
+      <button onclick="likeMedia('foto-final')">❤️ Curtir (<span id="001f">0</span>)</button>
     </div>
     <div class="comments">
-      <input type="text" id="input-photo2" placeholder="Escreva um comentário fofo...">
-      <button onclick="commentPhoto('photo2')">Comentar</button>
-      <ul id="comments-photo2"></ul>
+      <input type="text" id="input-foto-final" placeholder="Escreva um comentário fofo...">
+      <button onclick="commentMedia('foto-final')">Comentar</button>
+      <ul id="comments-foto-final"></ul>
     </div>
   </div>
+
+  <footer>
+    Feito com muito amor, para você ❤
+  </footer>
 
   <script>
-  const firebaseConfig = {
-  apiKey: "AIzaSyCkskBjaQDPH6S5BZ5mH3r3f78HsebdgdA",
-  authDomain: "my-princess-7c3b3.firebaseapp.com",
-  projectId: "my-princess-7c3b3",
-  storageBucket: "my-princess-7c3b3.firebasestorage.app",
-  messagingSenderId: "1090659331702",
-  appId: "1:1090659331702:web:ff424e878d3f4517a0b957",
-  measurementId: "G-0S95WK35TD"
-};
+    const firebaseConfig = {
+      apiKey: "AIzaSyBhQuHpPGdIWepa9QPdNO4g2vvl7xsgsAs",
+      authDomain: "minha-princesa-2792d.firebaseapp.com",
+      projectId: "minha-princesa-2792d",
+      storageBucket: "my-princess-2792d.firebasestorage.app",
+      messagingSenderId: "20165366848",
+      appId: "1:20165366848:web:7fde1bae2ae07e8bfc3ba5"
+    };
+
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    const photos = ['photo1', 'photo2'];
+    const medias = ['video-final', 'foto-final'];
 
     async function loadAll() {
-      for (const id of photos) {
-        const doc = await db.collection('photos').doc(id).get();
+      for (const id of medias) {
+        const doc = await db.collection('memories').doc(id).get();
         const data = doc.exists ? doc.data() : { likes: 0, comments: [] };
 
-        document.getElementById(`likes-${id}`).innerText = data.likes;
-
+        document.getElementById(`likes-${id}`).innerText = data.likes || 0;
         const ul = document.getElementById(`comments-${id}`);
         ul.innerHTML = "";
         if (data.comments) {
-          data.comments.forEach(com => {
+          data.comments.forEach(comment => {
             const li = document.createElement('li');
-            li.innerText = com;
+            li.textContent = comment;
             ul.appendChild(li);
           });
         }
       }
     }
 
-    async function likePhoto(photoId) {
-      const ref = db.collection('photos').doc(photoId);
+    async function likeMedia(id) {
+      const ref = db.collection('memories').doc(id);
       await ref.set({
         likes: firebase.firestore.FieldValue.increment(1)
       }, { merge: true });
-
       loadAll();
     }
 
-    async function commentPhoto(photoId) {
-      const input = document.getElementById(`input-${photoId}`);
+    async function commentMedia(id) {
+      const input = document.getElementById(`input-${id}`);
       const comment = input.value.trim();
       if (!comment) return;
 
-      const ref = db.collection('photos').doc(photoId);
+      const ref = db.collection('memories').doc(id);
       const doc = await ref.get();
       const data = doc.exists ? doc.data() : { comments: [] };
-
       const newComments = data.comments || [];
       newComments.push(comment);
 
       await ref.set({ comments: newComments }, { merge: true });
-
       input.value = "";
       loadAll();
     }
 
-    loadAll(); // Carrega dados ao abrir
+    loadAll();
   </script>
+</body>
+</html>
 
-  <footer>
-    Feito com muito amor, para você ❤
-  </footer>
-  
+
 </body>
 </html>
